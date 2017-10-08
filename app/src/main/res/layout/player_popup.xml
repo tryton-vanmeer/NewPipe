@@ -89,11 +89,22 @@
                 android:id="@+id/fullScreenButton"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_alignParentRight="true"
+                android:layout_toLeftOf="@+id/closePlayerButton"
                 android:background="#00ffffff"
                 android:clickable="true"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_fullscreen_white"
+                tools:ignore="ContentDescription,RtlHardcoded"/>
+
+            <ImageButton
+                android:id="@+id/closePlayerButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:background="#00ffffff"
+                android:clickable="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_close_white_24dp"
                 tools:ignore="ContentDescription,RtlHardcoded"/>
 
         </RelativeLayout>

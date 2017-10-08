@@ -252,6 +252,11 @@ public class MainVideoPlayer extends Activity {
         }
 
         @Override
+        public void onCloseScreenButtonClicked() {
+            onBackPressed();
+        }
+
+        @Override
         @SuppressWarnings("deprecation")
         public void onRepeatClicked() {
             super.onRepeatClicked();

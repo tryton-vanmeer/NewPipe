@@ -444,6 +444,12 @@ public class PopupVideoPlayer extends Service {
         }
 
         @Override
+        public void onCloseScreenButtonClicked() {
+            if (DEBUG) Log.d(TAG, "onCloseScreenButtonClicked() called");
+            onVideoClose();
+        }
+
+        @Override
         public void onRepeatClicked() {
             super.onRepeatClicked();
             switch (getCurrentRepeatMode()) {

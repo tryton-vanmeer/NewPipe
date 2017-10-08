@@ -124,6 +124,7 @@ public abstract class VideoPlayer extends BasePlayer implements SimpleExoPlayer.
     private View topControlsRoot;
     private TextView qualityTextView;
     private ImageButton fullScreenButton;
+    private ImageButton closeScreenButton;
 
     private ValueAnimator controlViewAnimator;
     private Handler controlsVisibilityHandler = new Handler();
@@ -167,6 +168,7 @@ public abstract class VideoPlayer extends BasePlayer implements SimpleExoPlayer.
         this.topControlsRoot = rootView.findViewById(R.id.topControls);
         this.qualityTextView = rootView.findViewById(R.id.qualityTextView);
         this.fullScreenButton = rootView.findViewById(R.id.fullScreenButton);
+        this.closeScreenButton = rootView.findViewById(R.id.closePlayerButton);
 
         //this.aspectRatioFrameLayout.setAspectRatio(16.0f / 9.0f);
 
@@ -432,6 +434,8 @@ public abstract class VideoPlayer extends BasePlayer implements SimpleExoPlayer.
 
     protected abstract void onFullScreenButtonClicked();
 
+    protected abstract void onCloseScreenButtonClicked();
+
     @Override
     public void onFastRewind() {
         super.onFastRewind();
@@ -450,9 +454,13 @@ public abstract class VideoPlayer extends BasePlayer implements SimpleExoPlayer.
 
     @Override
     public void onClick(View v) {
+        Log.d(TAG, "onClick: " + closeScreenButton);
         if (DEBUG) Log.d(TAG, "onClick() called with: v = [" + v + "]");
         if (v.getId() == fullScreenButton.getId()) {
             onFullScreenButtonClicked();
+        } else if (v.getId() == closeScreenButton.getId()) {
+            onCloseScreenButtonClicked();
+            Log.i(TAG, "onClick: Clicked closeScreenButton");
         } else if (v.getId() == qualityTextView.getId()) {
             onQualitySelectorClicked();
         } else if (v.getId() == playbackSpeed.getId()) {
